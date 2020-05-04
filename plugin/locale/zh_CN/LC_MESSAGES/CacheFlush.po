@@ -1,0 +1,135 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CacheFlush\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 19:57+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
+"Language-Team: Vytenis P. vyteniui@gmail.com\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 2.0.4\n"
+
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d 分钟"
+msgstr[1] "%d 分钟"
+msgstr[2] "%d 分钟"
+
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d 秒"
+msgstr[1] "%d 秒"
+msgstr[2] "%d 秒"
+
+msgid "Auto timeout"
+msgstr "自动超时"
+
+msgid "Auto timeout (5-150min)"
+msgstr "自动超时(5-150分钟)"
+
+msgid "Automatic cache flushing"
+msgstr "自动清理缓存"
+
+msgid "Cache drop type"
+msgstr "缓存丢弃类型"
+
+msgid "CacheFlush Info"
+msgstr "CacheFlush 信息"
+
+msgid "CacheFlush Status"
+msgstr "CacheFlush 状态"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Clean \"dirty\" cache too"
+msgstr "清理 \"dirty\" 缓存"
+
+msgid "Clear Now"
+msgstr "现在清理"
+
+msgid "Default"
+msgstr "默认"
+
+msgid "Display plugin in"
+msgstr "插件显示在哪？"
+
+msgid "Enable CacheFlush"
+msgstr "启用 CacheFlush"
+
+msgid "Free:"
+msgstr "剩余:"
+
+msgid "Info"
+msgstr "信息"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "Mem cleared"
+msgstr "内存已清理"
+
+msgid "Memory:"
+msgstr "内存:"
+
+msgid "Refresh"
+msgstr "刷新"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Setup CacheFlush"
+msgstr "CacheFlush 设置"
+
+msgid "Show info on screen"
+msgstr "在屏幕显示信息"
+
+msgid "Started"
+msgstr "已开启"
+
+msgid "Starting"
+msgstr "启动中"
+
+msgid "Stopped"
+msgstr "已停止"
+
+msgid "Time of info message"
+msgstr "信息显示时间"
+
+msgid "Time of info message (1-10sec)"
+msgstr "信息显示时间(1-10秒)"
+
+msgid "Uncached memory size"
+msgstr "未缓存内存大小"
+
+msgid "Uncached memory: %s kB,   ( default: %s kB )"
+msgstr "未缓存内存: %s kB,   (默认: %s kB )"
+
+msgid "Used:"
+msgstr "已使用:"
+
+msgid "dentries and inodes"
+msgstr "目录和索引"
+
+msgid "event info"
+msgstr "事件信息"
+
+msgid "extensions"
+msgstr "Extensions"
+
+msgid "menu-system"
+msgstr "系统菜单"
+
+msgid "pagecache"
+msgstr "系统数据"
+
+msgid "pagecache, dentries and inodes"
+msgstr "系统数据, 目录和索引"
+
+msgid "plugins"
+msgstr "插件浏览器"
