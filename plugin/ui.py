@@ -82,7 +82,7 @@ class CacheFlushSetupMenu(Screen, ConfigListScreen):
 			<widget name="config" position="10,10" size="1280,600" font="Regular;32" itemHeight="42" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
 			<ePixmap pixmap="skin_default/div-h.png" position="0,607" zPosition="2" size="1300,2" />
 			<widget name="min_free_kb" font="Regular;32" position="20,620" size="1260,35" zPosition="2" valign="center" backgroundColor="#31000000" transparent="1" />
-			<widget name="memory" position="20,667" zPosition="2" size="1260,35" valign="center" halign="left" font="Regular;32" transparent="1" foregroundColor="white" />
+			<widget name="memory" position="20,665" zPosition="2" size="1260,35" valign="center" halign="left" font="Regular;32" transparent="1" foregroundColor="white" />
 			<widget name="slide" position="20,710" zPosition="2" borderWidth="1" size="1260,8" backgroundColor="dark" />
 			<ePixmap pixmap="skin_default/div-h.png" position="0,730" zPosition="2" size="1300,2" />
 			<widget name="key_red" position="0,742" zPosition="2" size="325,30" valign="center" halign="center" font="Regular;32" transparent="1" foregroundColor="red" />
