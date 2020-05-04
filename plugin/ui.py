@@ -78,17 +78,17 @@ def setMinFreeKbytes(size):
 class CacheFlushSetupMenu(Screen, ConfigListScreen):
 	if FHD:
 		skin = """
-		<screen name="CacheFlush" position="center,center" size="1000,490" title="" backgroundColor="#31000000" >
-			<widget name="config" position="10,10" size="980,400" font="Regular;30" itemHeight="38" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
-			<ePixmap pixmap="skin_default/div-h.png" position="0,332" zPosition="2" size="1000,2" />
-			<widget name="min_free_kb" font="Regular;28" position="20,345" size="960,35" zPosition="2" valign="center" backgroundColor="#31000000" transparent="1" />
-			<widget name="memory" position="20,380" zPosition="2" size="960,35" valign="center" halign="left" font="Regular;28" transparent="1" foregroundColor="white" />
-			<widget name="slide" position="20,415" zPosition="2" borderWidth="1" size="960,8" backgroundColor="dark" />
-			<ePixmap pixmap="skin_default/div-h.png" position="0,435" zPosition="2" size="1000,2" />
-			<widget name="key_red" position="0,450" zPosition="2" size="250,30" valign="center" halign="center" font="Regular;25" transparent="1" foregroundColor="red" />
-			<widget name="key_green" position="250,450" zPosition="2" size="250,30" valign="center" halign="center" font="Regular;25" transparent="1" foregroundColor="green" />
-			<widget name="key_yellow" position="500,450" zPosition="2" size="250,30" valign="center" halign="center" font="Regular;25" transparent="1" foregroundColor="yellow" />
-			<widget name="key_blue" position="750,450" zPosition="2" size="250,30" valign="center" halign="center" font="Regular;25" transparent="1" foregroundColor="blue" />
+		<screen name="CacheFlush" position="center,center" size="1300,790" title="" backgroundColor="#31000000" >
+			<widget name="config" position="10,10" size="1280,600" font="Regular;32" itemHeight="42" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
+			<ePixmap pixmap="skin_default/div-h.png" position="0,610" zPosition="2" size="1300,2" />
+			<widget name="min_free_kb" font="Regular;32" position="20,630" size="1260,35" zPosition="2" valign="center" backgroundColor="#31000000" transparent="1" />
+			<widget name="memory" position="20,665" zPosition="2" size="1260,35" valign="center" halign="left" font="Regular;32" transparent="1" foregroundColor="white" />
+			<widget name="slide" position="20,710" zPosition="2" borderWidth="1" size="1260,8" backgroundColor="dark" />
+			<ePixmap pixmap="skin_default/div-h.png" position="0,730" zPosition="2" size="1300,2" />
+			<widget name="key_red" position="0,742" zPosition="2" size="325,30" valign="center" halign="center" font="Regular;32" transparent="1" foregroundColor="red" />
+			<widget name="key_green" position="325,742" zPosition="2" size="325,30" valign="center" halign="center" font="Regular;32" transparent="1" foregroundColor="green" />
+			<widget name="key_yellow" position="650,742" zPosition="2" size="325,30" valign="center" halign="center" font="Regular;32" transparent="1" foregroundColor="yellow" />
+			<widget name="key_blue" position="975,742" zPosition="2" size="325,30" valign="center" halign="center" font="Regular;32" transparent="1" foregroundColor="blue" />
 		</screen>"""
 	else:
 		skin = """
