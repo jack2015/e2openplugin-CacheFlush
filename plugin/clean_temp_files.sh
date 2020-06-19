@@ -28,6 +28,7 @@ rmpo() {
 }
 
 rm -rf /media/hdd/enigma2_crash*.log >/dev/null 2>&1
+rm -rf /media/usb/enigma2_crash*.log >/dev/null 2>&1
 rm -rf /home/root/enigma2_crash*.log >/dev/null 2>&1
 rmpo /var/volatile/tmp
 exit 0
