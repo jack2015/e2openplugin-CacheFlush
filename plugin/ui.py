@@ -9,7 +9,7 @@ from Components.Label import Label
 from os import system
 from enigma import eTimer, getDesktop
 from Components.ProgressBar import ProgressBar
-
+from Tools.Directories import fileExists
 from plugin import VERSION
 
 FHD = False
@@ -45,6 +45,8 @@ choicelist = [("0",_("Default")),]
 for i in range(1, 21):
 	choicelist.append(("%d" % i, "%d kB" % (1024*i)))
 config.plugins.CacheFlush.uncached = ConfigSelection(default = "1", choices = choicelist)
+config.plugins.CacheFlush.ipkcache = ConfigSelection(default = "0", choices = [("0",_("Click Me")),])
+config.plugins.CacheFlush.deltmp = ConfigSelection(default = "0", choices = [("0",_("Click Me")),])
 config.plugins.CacheFlush.free_default = ConfigInteger(default = 0, limits=(0,9999999999))
 cfg = config.plugins.CacheFlush
 
@@ -82,7 +84,8 @@ class CacheFlushSetupMenu(Screen, ConfigListScreen):
 			<widget name="config" position="10,10" size="1280,600" font="Regular;32" itemHeight="42" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
 			<ePixmap pixmap="skin_default/div-h.png" position="0,607" zPosition="2" size="1300,2" />
 			<widget name="min_free_kb" font="Regular;32" position="20,620" size="1260,35" zPosition="2" valign="center" backgroundColor="#31000000" transparent="1" />
-			<widget name="memory" position="20,665" zPosition="2" size="1260,35" valign="center" halign="left" font="Regular;32" transparent="1" foregroundColor="white" />
+			<widget name="memory" position="20,665" zPosition="3" size="1260,35" valign="center" halign="left" font="Regular;32" transparent="1" foregroundColor="white" />
+			<widget name="ipkcache" position="20,665" zPosition="1" size="1260,35" valign="center" halign="left" font="Regular;32" transparent="1" foregroundColor="white" />
 			<widget name="slide" position="20,710" zPosition="2" borderWidth="1" size="1260,8" backgroundColor="dark" />
 			<ePixmap pixmap="skin_default/div-h.png" position="0,730" zPosition="2" size="1300,2" />
 			<widget name="key_red" position="0,742" zPosition="2" size="325,30" valign="center" halign="center" font="Regular;32" transparent="1" foregroundColor="red" />
@@ -96,7 +99,8 @@ class CacheFlushSetupMenu(Screen, ConfigListScreen):
 			<widget name="config" position="10,10" size="480,200" zPosition="1" transparent="0" backgroundColor="#31000000" scrollbarMode="showOnDemand" />
 			<ePixmap pixmap="skin_default/div-h.png" position="0,223" zPosition="2" size="500,2" />
 			<widget name="min_free_kb" font="Regular;18" position="10,225" size="480,25" zPosition="2" valign="center" backgroundColor="#31000000" transparent="1" />
-			<widget name="memory" position="10,245" zPosition="2" size="480,24" valign="center" halign="left" font="Regular;20" transparent="1" foregroundColor="white" />
+			<widget name="memory" position="10,245" zPosition="3" size="480,24" valign="center" halign="left" font="Regular;20" transparent="1" foregroundColor="white" />
+			<widget name="ipkcache" position="10,245" zPosition="1" size="480,24" valign="center" halign="left" font="Regular;20" transparent="1" foregroundColor="white" />
 			<widget name="slide" position="10,270" zPosition="2" borderWidth="1" size="480,8" backgroundColor="dark" />
 			<ePixmap pixmap="skin_default/div-h.png" position="0,283" zPosition="2" size="500,2" />
 			<widget name="key_red" position="0,287" zPosition="2" size="120,30" valign="center" halign="center" font="Regular;22" transparent="1" foregroundColor="red" />
@@ -116,7 +120,7 @@ class CacheFlushSetupMenu(Screen, ConfigListScreen):
 			{
 				"cancel": self.keyCancel,
 				"green": self.keySave,
-				"ok": self.keySave,
+				"ok": self.keyOk,
 				"red": self.keyCancel,
 				"blue": self.freeMemory,
 				"yellow": self.memoryInfo,
@@ -131,6 +135,7 @@ class CacheFlushSetupMenu(Screen, ConfigListScreen):
 		self["slide"].setValue(100)
 		self["slide"].hide()
 		self["memory"] = Label()
+		self["ipkcache"] = Label()
 		self["min_free_kb"] = Label(_("Uncached memory: %s kB,   ( default: %s kB )") % ( getMinFreeKbytes(), str(cfg.free_default.value)))
 
 		self.runSetup()
@@ -157,6 +162,8 @@ class CacheFlushSetupMenu(Screen, ConfigListScreen):
 				getConfigListEntry(_("Display plugin in"), cfg.where),
 			))
 		self.list.extend((getConfigListEntry(_("Uncached memory size"), cfg.uncached),))
+		self.list.extend((getConfigListEntry(_("Delete opkg cache ipk files"), cfg.ipkcache),))
+		self.list.extend((getConfigListEntry(_("Delete temporary folder files"), cfg.deltmp),))
 
 		self["config"].list = self.list
 		self["config"].setList(self.list)
@@ -167,6 +174,18 @@ class CacheFlushSetupMenu(Screen, ConfigListScreen):
 #		configfile.save()
 		self.setUncachedMemory()
 		self.close()
+
+	def keyOk(self):
+		if self["config"].getCurrent()[1] == cfg.ipkcache:
+			system("rm -rf /var/volatile/cache/opkg/*.ipk")
+			self["ipkcache"].setText("IPK files deleted.")
+		elif self["config"].getCurrent()[1] == cfg.deltmp:
+			if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/CacheFlush/clean_temp_files.sh"):
+				system("chmod 0755 /usr/lib/enigma2/python/Plugins/Extensions/CacheFlush/clean_temp_files.sh")
+				system("sh /usr/lib/enigma2/python/Plugins/Extensions/CacheFlush/clean_temp_files.sh")
+				self["ipkcache"].setText("Temporary files deleted.")
+			else:
+				self["ipkcache"].setText("Command file losted.")
 
 	def keyCancel(self):
 		for x in self["config"].list:
