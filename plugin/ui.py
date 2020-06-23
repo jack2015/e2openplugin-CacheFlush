@@ -183,9 +183,9 @@ class CacheFlushSetupMenu(Screen, ConfigListScreen):
 			if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/CacheFlush/clean_temp_files.sh"):
 				system("chmod 0755 /usr/lib/enigma2/python/Plugins/Extensions/CacheFlush/clean_temp_files.sh")
 				system("sh /usr/lib/enigma2/python/Plugins/Extensions/CacheFlush/clean_temp_files.sh")
-				self["ipkcache"].setText("Temporary files deleted.")
+				self["ipkcache"].setText(_("Temporary files deleted."))
 			else:
-				self["ipkcache"].setText("Command file losted.")
+				self["ipkcache"].setText(_("Command file losted."))
 
 	def keyCancel(self):
 		for x in self["config"].list:
